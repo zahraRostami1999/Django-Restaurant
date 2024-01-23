@@ -14,27 +14,26 @@
                     {{item.name}}
                     {{item.price}}$
                     {{item.detail}}
-                    <button class="btn btn-sm btn-danger">End</button>
+                    <a href="{% url 'end' item.id %}"><button class="btn btn-sm btn-danger">END</button></a>
                 </div>
                 {% endif %}
-
                 {% endfor %}
-
             </div>
         </div>
         <div class="col-md-6">
             <h2>Unavailable Foods</h2>
-            <div class="box unavailable-foods bg-danger d-flex justify-content-center">
+            <div class="box unavailable-foods bg-danger">
                 {% for item in menuItems %}
                 {% if item.state == False %}
-                {{item.name}}
-                {{item.price}}$
-                {{item.detail}}
-                <br>
+                <div class="box d-flex justify-content-between mb-3 p-2 ">
+                    {{item.name}}
+                    {{item.price}}$
+                    {{item.detail}}
+                    <a href="{% url 'add' item.id %}"><button class="btn btn-sm btn-success">ADD</button></a>
+                </div>
                 {% endif %}
                 {% endfor %}
             </div>
         </div>
     </div>
-</div>
-{% endblock %}
+    {% endblock %}
