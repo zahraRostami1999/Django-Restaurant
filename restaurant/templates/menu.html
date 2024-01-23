@@ -4,31 +4,35 @@
 
 <div class="container">
     <h1 class="mb-5">This is Today's Menu</h1>
-    <div class="row">
+    <div class="row d-flex ">
         <div class="col-md-6">
             <h2>Available Foods</h2>
-            <div class="box available-foods bg-success d-flex justify-content-center">
+            <div class="box available-foods bg-success">
                 {% for item in menuItems %}
                 {% if item.state == True %}
+                <div class="box d-flex justify-content-between mb-3 p-2 ">
                     {{item.name}}
                     {{item.price}}$
                     {{item.detail}}
-                    <br>
+                    <button class="btn btn-sm btn-danger">End</button>
+                </div>
                 {% endif %}
+
                 {% endfor %}
+
             </div>
         </div>
         <div class="col-md-6">
             <h2>Unavailable Foods</h2>
             <div class="box unavailable-foods bg-danger d-flex justify-content-center">
-            {% for item in menuItems %}
-            {% if item.state == False %}
+                {% for item in menuItems %}
+                {% if item.state == False %}
                 {{item.name}}
                 {{item.price}}$
                 {{item.detail}}
                 <br>
-            {% endif %}
-            {% endfor %}
+                {% endif %}
+                {% endfor %}
             </div>
         </div>
     </div>
