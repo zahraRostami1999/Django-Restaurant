@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
+{% block title %} HOME {% endblock %}
+{% block content %}
 <h1>This is home page</h1>
 {% if name == 'zahra' %}
 <h1>wellcome to your restaurant</h1>
 {% else %}
 <h2>{{name}} wellcome to my restaurant</h2>
-{% endif %}
+{% endif %
+}
+{% endblock %}
