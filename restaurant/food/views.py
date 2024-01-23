@@ -3,6 +3,6 @@ from .models import Material
 
 # Create your views here.
 
-def material(request):
-    materialItem = material.objects.all()
+def materials(request):
+    materialItem = Material.objects.all()
     return render(request, 'kitchen.html', {'materialItem': materialItem})
