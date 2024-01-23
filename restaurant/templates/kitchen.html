@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% for item in materialItem %}
+<h2>{{item.name}}
+    <span>{{item.primeryMaterial}}</span>
+    <span>{{item.drink}}{{item.drinkType}}</span>
+    <span>{{item.torshi}}</span>
+</h2>
+
+{% endfor %}
