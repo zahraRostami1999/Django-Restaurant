@@ -2,16 +2,15 @@
 {% block title %} MENU {% endblock %}
 {% block content %}
 
-
 <div class="container">
-    <h1>this is Today's Menu</h1>
+    <h1 class="mb-5">This is Today's Menu</h1>
     <div class="row">
         <div class="col-md-6">
             <h2>Available Foods</h2>
-            <div class="box available-foods bg-success">
+            <div class="box available-foods bg-success d-flex justify-content-center">
                 {% for item in menuItems %}
                 {% if item.state == True %}
-                    {{item.name}}{{item.state}}
+                    {{item.name}}
                     {{item.price}}$
                     {{item.detail}}
                     <br>
@@ -21,10 +20,10 @@
         </div>
         <div class="col-md-6">
             <h2>Unavailable Foods</h2>
-            <div class="box unavailable-foods bg-danger">
+            <div class="box unavailable-foods bg-danger d-flex justify-content-center">
             {% for item in menuItems %}
             {% if item.state == False %}
-                {{item.name}}{{item.state}}
+                {{item.name}}
                 {{item.price}}$
                 {{item.detail}}
                 <br>
