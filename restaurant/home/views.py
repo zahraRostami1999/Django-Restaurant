@@ -13,3 +13,8 @@ def home(request):
 def menu(request):
     MenuItems = Menu.objects.all()
     return render(request, 'menu.html', {'menuItems': MenuItems})
+
+def False_menu_state(request, menu_id):
+    menu = Menu.objects.get(pk=menu_id)
+    menu.state = False
+    menu.save()
