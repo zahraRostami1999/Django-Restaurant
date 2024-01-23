@@ -1,32 +1,37 @@
 {% extends 'base.html' %}
 {% block title %} MENU {% endblock %}
 {% block content %}
-<div class="header">
-    <h1>this is Today's Menu</h1>
-</div>
 
-<div class="d-flex">
-    <div class="bg-success text-white">
-        {% for item in menuItems %}
-        <h2>
-            {% if item.state == True %}
-            {{item.name}}
-            <span>{{item.price}}$</span>
-            <span>{{item.detail}}</span>
+
+<div class="container">
+    <h1>this is Today's Menu</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Available Foods</h2>
+            <div class="box available-foods bg-success">
+                {% for item in menuItems %}
+                {% if item.state == True %}
+                    {{item.name}}{{item.state}}
+                    {{item.price}}$
+                    {{item.detail}}
+                    <br>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h2>Unavailable Foods</h2>
+            <div class="box unavailable-foods bg-danger">
+            {% for item in menuItems %}
+            {% if item.state == False %}
+                {{item.name}}{{item.state}}
+                {{item.price}}$
+                {{item.detail}}
+                <br>
             {% endif %}
-        </h2>
-        {% endfor %}
-    </div>
-    <div class="p-3 mb-2 bg-danger text-white">
-        {% for item in menuItems %}
-        <h2>
-            {% if item.state != True %}
-            {{item.name}}
-            <span>{{item.price}}$</span>
-            <span>{{item.detail}}</span>
-            {% endif %}
-        </h2>
-        {% endfor %}
+            {% endfor %}
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}
