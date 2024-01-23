@@ -7,3 +7,4 @@ class Menu(models.Model):
     price = models.FloatField()
     detail = models.TextField(blank=True)
     state = models.BooleanField(default=False)
+    quantity = models.IntegerField()
