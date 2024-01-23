@@ -7,9 +7,3 @@ class Menu(models.Model):
     price = models.FloatField()
     detail = models.TextField(blank=True)
     state = models.BooleanField(default=False)
-
-class Saba(models.Model):
-    name = models.CharField(max_length = 40)
-    price = models.FloatField()
-    detail = models.TextField(blank=True)
-    state = models.BooleanField(default=False)
